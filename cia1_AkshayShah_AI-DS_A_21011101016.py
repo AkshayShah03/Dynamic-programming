@@ -1,5 +1,5 @@
 import random
-import numpy
+import numpy as np
 list = ['A','G','C','T']
 list2 = []
 list3 = []
@@ -43,8 +43,8 @@ while(True):
         else:
             list2.append(h)
 
-''.join(list2)
-print(list2)
+s1 = ''.join(list2)
+print(s1)
 
 
 a1= 0
@@ -87,18 +87,20 @@ while(True):
         else:
             list3.append(j)
 
-''.join(list3)
-print(list3)
+s2 = ''.join(list3)
+print(s2)
 
 match = 5
 mismatch = 4
 len1,len2 = 16,16
-zeroes = np.zeroes(16,16)
-
-def populate(zeroes,i=1,j=1):
+zeroes = np.zeros((16,16),dtype = 'int')
+i = 1
+j = 1
+while(True):
     if i==len1 and j==len2:
-        return zeroes
-    if list2[i-1]!=list3[j-1]:
+        print(zeroes)
+        break
+    if s1[i-1]!=s2[j-1]:
         x = max(zeroes[i][j-1],zeroes[i-1][j],zeroes[i-1][j-1])
         zeroes[i][j] = x-mismatch
     else:
@@ -109,7 +111,7 @@ def populate(zeroes,i=1,j=1):
         j = 1
     else:
         j+=1
-populate(zeroes,i=1,j=1)
+
 
 
 
